@@ -4,10 +4,12 @@
 #
 Name     : mvn-scalactic_2.12
 Version  : 1
-Release  : 2
+Release  : 3
 URL      : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.jar
 Source0  : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.jar
-Source1  : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom
+Source1  : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar
+Source2  : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.pom
+Source3  : https://repo.maven.apache.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -25,6 +27,7 @@ data components for the mvn-scalactic_2.12 package.
 
 
 %prep
+%setup -q -n META-INF
 
 %build
 
@@ -32,8 +35,14 @@ data components for the mvn-scalactic_2.12 package.
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3
 cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.jar
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom
 
 
 %files
@@ -41,5 +50,7 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/scalactic/scalactic
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar
+/usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.pom
 /usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.jar
 /usr/share/java/.m2/repository/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom
